@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe for Women | South African Women's Health Platform</title>
+    
+    <!-- External CSS and Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff0f3', 100: '#ffe3e9', 200: '#ffcbd9', 300: '#ffa1ba', 400: '#ff6d95', 500: '#fa3972', 600: '#e91f63', 700: '#c40e4f', 800: '#a40f47', 900: '#8c1142',
+                        },
+                        secondary: {
+                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!--styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Poppins', sans-serif; background-color: #fff0f3; }
+        .hero-pattern { background-image: radial-gradient(#ffcbd9 1px, transparent 1px); background-size: 20px 20px; }
+        .btn-primary { background-color: #fa3972; color: white; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #e91f63; transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: #fa3972; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .feature-card { transition: all 0.3s ease; border: 1px solid #ffe3e9; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(250, 57, 114, 0.1); }
+        .testimonial-card { background: linear-gradient(145deg, #ffffff, #fff0f3); box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05); }
+        .login-form { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-venus text-primary-500 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-primary-700">Safe for Women</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#features" class="nav-link text-secondary-700 hover:text-primary-600 px-3 py-2 text-sm font-medium">Features</a>
+                    <a href="#how-it-works" class="nav-link text-secondary-700 hover:text-primary-600 px-3 py-2 text-sm font-medium">How It Works</a>
+                    <a href="#testimonials" class="nav-link text-secondary-700 hover:text-primary-600 px-3 py-2 text-sm font-medium">Testimonials</a>
+                    <a href="#contact" class="nav-link text-secondary-700 hover:text-primary-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    <button onclick="toggleLoginModal()" class="btn-primary px-4 py-2 rounded-md text-sm font-medium">Login / Register</button>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-secondary-400 hover:text-secondary-500 hover:bg-secondary-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-pattern">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight text-secondary-900 sm:text-5xl md:text-6xl">
+                    <span class="block">Your Health,</span>
+                    <span class="block text-primary-600">In Safe Hands</span>
+                </h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-secondary-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                    A safe digital space for South African women to connect with verified female gynecologists, manage medical records, and access healthcare services with privacy and dignity.
+                </p>
+                <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+                    <div class="rounded-md shadow">
+                        <a href="#" onclick="toggleLoginModal()" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10">
+                            Get Started
+                        </a>
+                    </div>
+                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                        <a href="#how-it-works" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-secondary-50 md:py-4 md:text-lg md:px-10">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary-600 font-semibold tracking-wide uppercase">Features</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
+                    Designed with South African Women in Mind
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-secondary-500 lg:mx-auto">
+                    Our platform offers comprehensive tools for both patients and doctors to manage women's health needs.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                    <!-- Feature 1 -->
+                    <div class="feature-card relative p-6 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-primary-500 rounded-md p-3">
+                                <i class="fas fa-calendar-check text-white text-xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg leading-6 font-medium text-secondary-900">Appointment Scheduling</h3>
+                                <p class="mt-2 text-secondary-500">
+                                    Book, reschedule or cancel appointments with verified female gynecologists at your convenience.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card relative p-6 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-primary-500 rounded-md p-3">
+                                <i class="fas fa-file-medical text-white text-xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg leading-6 font-medium text-secondary-900">Digital Medical Records</h3>
+                                <p class="mt-2 text-secondary-500">
+                                    Securely store and access your medical history, test results, and prescriptions in one place.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-card relative p-6 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-primary-500 rounded-md p-3">
+                                <i class="fas fa-prescription-bottle-alt text-white text-xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg leading-6 font-medium text-secondary-900">E-Prescriptions</h3>
+                                <p class="mt-2 text-secondary-500">
+                                    Receive digital prescriptions that can be sent directly to your preferred pharmacy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="feature-card relative p-6 rounded-lg">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-primary-500 rounded-md p-3">
+                                <i class="fas fa-shield-alt text-white text-xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg leading-6 font-medium text-secondary-900">Secure Messaging</h3>
+                                <p class="mt-2 text-secondary-500">
+                                    Private and encrypted communication with your healthcare provider when you need advice.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div id="how-it-works" class="py-12 bg-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary-600 font-semibold tracking-wide uppercase">Process</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
+                    How Safe for Women Works
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="relative">
+                    <!-- Vertical line -->
+                    <div class="absolute left-1/2 h-full w-1 bg-primary-200 transform -translate-x-1/2"></div>
+
+                    <!-- Steps -->
+                    <div class="space-y-8">
+                        <!-- Step 1 -->
+                        <div class="relative flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-lg z-10">
+                                1
+                            </div>
+                            <div class="ml-6 pt-1 flex-1">
+                                <h3 class="text-lg font-medium text-secondary-900">Register Your Account</h3>
+                                <p class="mt-1 text-base text-secondary-600">
+                                    Patients and doctors create accounts with verified South African ID numbers (only female users accepted).
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="relative flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-lg z-10">
+                                2
+                            </div>
+                            <div class="ml-6 pt-1 flex-1">
+                                <h3 class="text-lg font-medium text-secondary-900">Complete Your Profile</h3>
+                                <p class="mt-1 text-base text-secondary-600">
+                                    Patients add health details. Doctors provide practice information and qualifications for verification.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-primary-500 flex items-center justify-center text-white font-bold text-lg z-10">
+                                3
+                            </div>
+                            <div class="ml-6 pt-1 flex-1">
+                                <h3 class="text-lg font-medium text-secondary-900">Connect & Manage</h3>
+                                <p class="mt-1 text-base text-secondary-600">
+                                    Patients can book appointments, view records. Doctors manage practice, patients, and prescriptions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div id="testimonials" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary-600 font-semibold tracking-wide uppercase">Testimonials</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
+                    What Our Users Say
+                </p>
+            </div>
+
+            <div class="mt-10 grid gap-8 lg:grid-cols-3">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Thandi M.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-secondary-900">Thandi M.</h3>
+                            <p class="text-secondary-500">Patient, Johannesburg</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-secondary-600">
+                            "As a working mom, Safe for Women has made managing my health so much easier. I can book appointments during lunch breaks and access my test results without taking time off work."
+                        </p>
+                    </div>
+                    <div class="mt-4 flex text-primary-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Sam K.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-secondary-900">Dr. Sam K.</h3>
+                            <p class="text-secondary-500">Gynecologist, Cape Town</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-secondary-600">
+                            "This platform has transformed my practice. The digital records system saves me hours of paperwork, and my patients appreciate the convenience of online scheduling and prescriptions."
+                        </p>
+                    </div>
+                    <div class="mt-4 flex text-primary-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Linda P.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-secondary-900">Linda P.</h3>
+                            <p class="text-secondary-500">Patient, Durban</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-secondary-600">
+                            "I feel safe knowing I'm only interacting with verified female doctors. The privacy features give me peace of mind when discussing sensitive health matters."
+                        </p>
+                    </div>
+                    <div class="mt-4 flex text-primary-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-primary-700">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                        <span class="block">Ready to take control of your health?</span>
+                    </h2>
+                    <p class="mt-3 text-lg text-primary-100">
+                        Join thousands of South African women who trust Safe for Women with their healthcare needs.
+                    </p>
+                </div>
+                <div class="mt-8 lg:mt-0">
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="#" onclick="toggleLoginModal()" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50">
+                            Get Started Today
+                        </a>
+                    </div>
+                    <div class="inline-flex ml-3 rounded-md shadow">
+                        <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 bg-opacity-60 hover:bg-opacity-70">
+                            <i class="fas fa-mobile-alt mr-2"></i> Download App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary-600 font-semibold tracking-wide uppercase">Contact</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
+                    We're Here to Help
+                </p>
+            </div>
+
+            <div class="mt-10 grid gap-8 lg:grid-cols-2">
+                <div>
+                    <h3 class="text-lg font-medium text-secondary-900">Get in Touch</h3>
+                    <p class="mt-2 text-secondary-600">
+                        Have questions about Safe for Women? Our team is ready to assist you with any inquiries.
+                    </p>
+                    <div class="mt-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-primary-100 rounded-md p-3">
+                                <i class="fas fa-envelope text-primary-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-medium text-secondary-900">Email</h4>
+                                <p class="mt-1 text-sm text-secondary-600">support@safeforwomen.co.za</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-start">
+                            <div class="flex-shrink-0 bg-primary-100 rounded-md p-3">
+                                <i class="fas fa-phone-alt text-primary-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-medium text-secondary-900">Phone</h4>
+                                <p class="mt-1 text-sm text-secondary-600">+27 21 123 4567</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-start">
+                            <div class="flex-shrink-0 bg-primary-100 rounded-md p-3">
+                                <i class="fas fa-map-marker-alt text-primary-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-sm font-medium text-secondary-900">Address</h4>
+                                <p class="mt-1 text-sm text-secondary-600">123 Health Street, Cape Town, 8001, South Africa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-secondary-700">Name</label>
+                            <div class="mt-1">
+                                <input type="text" name="name" id="name" class="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 rounded-md">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-secondary-700">Email</label>
+                            <div class="mt-1">
+                                <input type="email" name="email" id="email" class="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 rounded-md">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-secondary-700">Message</label>
+                            <div class="mt-1">
+                                <textarea id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 rounded-md"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-primary-300 tracking-wider uppercase">Services</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-secondary-300 hover:text-white">For Patients</a></li>
+                        <li><a href="#" class="text-base text-secondary-300 hover:text-white">For Doctors</a></li>
+                        <li><a href="#" class="text-base text-secondary-300 hover:text-white">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-primary-300 tracking-wider uppercase">Company</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-secondary-300 hover:text-white">About</a></li>
+                        <li><a href="#" class="text-base text-secondary-300 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-base text-secondary-300 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-primary-300 tracking-wider uppercase">Resources</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-secondary-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-base text-secondary-300 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-base text-secondary-300 hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-primary-300 tracking-wider uppercase">Connect</h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="#" class="text-secondary-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-secondary-700 pt-8 flex flex-col md:flex-row justify-between">
+                <p class="text-base text-secondary-400">
+                    &copy; 2025 Safe for Women by Sophie K. Monama. All rights reserved.
+                </p>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-base text-secondary-400">
+                        Proudly South African
+                        <span class="ml-2"><i class="fas fa-flag text-primary-400"></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login/Register Modal -->
+    <div id="loginModal" class="fixed z-50 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-secondary-500 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="toggleLoginModal()"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg leading-6 font-medium text-secondary-900" id="modal-title">
+                                    Welcome to Safe for Women
+                                </h3>
+                                <button type="button" onclick="toggleLoginModal()" class="text-secondary-400 hover:text-secondary-500">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="mt-4">
+                                <div class="flex border-b">
+                                    <button id="loginTab" class="flex-1 py-2 px-4 font-medium text-center border-b-2 border-primary-500 text-primary-600">
+                                        Login
+                                    </button>
+                                    <button id="registerTab" class="flex-1 py-2 px-4 font-medium text-center border-b-2 border-transparent text-secondary-500 hover:text-secondary-700">
+                                        Register
+                                    </button>
+                                </div>
+                                
+                                <!-- Login Form -->
+                                <div id="loginForm" class="mt-6 space-y-6">
+                                    <div>
+                                        <label for="loginEmail" class="block text-sm font-medium text-secondary-700">Email</label>
+                                        <div class="mt-1">
+                                            <input type="email" id="loginEmail" class="py-2 px-3 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 rounded-md">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="loginPassword" class="block text-sm font-medium text-secondary-700">Password</label>
+                                        <div class="mt-1">
+                                            <input type="password" id="loginPassword" class="py-2 px-3 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 rounded-md">
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-secondary-300 rounded">
+                                            <label for="remember-me" class="ml-2 block text-sm text-secondary-700">Remember me</label>
+                                        </div>
+                                        <div class="text-sm">
+                                            <a href="#" class="font-medium text-primary-600 hover:text-primary-500">Forgot password?</a>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                            Sign in
+                                        </button>
+                                    </div>
+                                    <div class="relative">
+                                        <div class="absolute inset-0 flex items-center">
+                                            <div class="w-full border-t border-secondary-300"></div>
+                                        </div>
+                                        <div class="relative flex justify-center text-sm">
+                                            <span class="px-2 bg-white text-secondary-500">Or continue with</span>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button type="button" class="w-full inline-flex justify-center py-2 px-4 border border-secondary-300 rounded-md shadow-sm bg-white text-sm font-medium text-secondary-500 hover:bg-secondary-50">
+                                            <i class="fab fa-google text-red-500 mr-2"></i> Google
+                                        </button>
+                                        <button type="button" class="w-full inline-flex justify-center py-2 px-4 border border-secondary-300 rounded-md shadow-sm bg-white text-sm font-medium text-secondary-500 hover:bg-secondary-50">
+                                            <i class="fab fa-apple text-black mr-2"></i> Apple
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Register Form -->
+                                <div id="registerForm" class="mt-6 space-y-6 hidden">
+                                    <div class="flex space-x-4">
+                                        <div class="flex-1">
+                                            <input type="radio" id="patient" name="userType" value="patient" class="hidden peer" checked>
+                                            <label for="patient" class="inline-flex items-center justify-between w-full p-3 text-secondary-700 bg-white border border-secondary-300 rounded-lg cursor-pointer peer-checked:border-primary-500 peer-checked:text-primary-600 hover:text-secondary-600 hover:bg-secondary-50">
+                                                <div class="block">
+                                                    <div class="w-full text-center font-medium">I'm a Patient</div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="flex-1">
+                                            <input type="radio" id="doctor" name="userType" value="doctor" class="hidden peer">
+                                            <label for="doctor" class="inline-flex items-center justify-between w-full p-3 text-secondary-700 bg-white border border-secondary-300 rounded-lg cursor-pointer peer-checked:border-primary-500 peer-checked:text-primary-600 hover:text-secondary-600 hover:bg-secondary-50">
+                                                <div class="block">
+                                                    <div class="w-full text-center font-medium">I'm a Doctor</div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="registerEmail" class="block text-sm font-medium text-secondary-700">Email</label>
+                                        <div class="mt-1">
+                                            <input type="email" id="registerEmail" class="py-2 px-3 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 rounded-md">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="registerPassword" class="block text-sm font-medium text-secondary-700">Password</label>
+                                        <div class="mt-1">
+                                            <input type="password" id="registerPassword" class="py-2 px-3 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 rounded-md">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="confirmPassword" class="block text-sm font-medium text-secondary-700">Confirm Password</label>
+                                        <div class="mt-1">
+                                            <input type="password" id="confirmPassword" class="py-2 px-3 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 rounded-md">
+                                        </div>
+                                    </div>
+                                    <div id="idNumberField">
+                                        <label for="idNumber" class="block text-sm font-medium text-secondary-700">South African ID Number</label>
+                                        <div class="mt-1">
+                                            <input type="text" id="idNumber" class="py-2 px-3 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 rounded-md" placeholder="e.g. 9001011234088">
+                                            <p class="mt-1 text-xs text-secondary-500">We verify your gender from your ID to ensure this platform remains exclusively for women.</p>
+                                        </div>
+                                    </div>
+                                    <div id="hpcsNumberField" class="hidden">
+                                        <label for="hpcsNumber" class="block text-sm font-medium text-secondary-700">HPCSA Registration Number</label>
+                                        <div class="mt-1">
+                                            <input type="text" id="hpcsNumber" class="py-2 px-3 block w-full shadow-sm focus:ring-primary-500 focus:border-primary-500 border-secondary-300 rounded-md">
+                                            <p class="mt-1 text-xs text-secondary-500">Required for verification of gynecologists.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-secondary-300 rounded">
+                                        <label for="terms" class="ml-2 block text-sm text-secondary-700">
+                                            I agree to the <a href="#" class="text-primary-600 hover:text-primary-500">Terms of Service</a> and <a href="#" class="text-primary-600 hover:text-primary-500">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                            Create Account
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle login modal
+        function toggleLoginModal() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Toggle between login and register tabs
+        document.getElementById('loginTab').addEventListener('click', function() {
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('registerForm').classList.add('hidden');
+            document.getElementById('loginTab').classList.add('border-primary-500', 'text-primary-600');
+            document.getElementById('loginTab').classList.remove('border-transparent', 'text-secondary-500', 'hover:text-secondary-700');
+            document.getElementById('registerTab').classList.remove('border-primary-500', 'text-primary-600');
+            document.getElementById('registerTab').classList.add('border-transparent', 'text-secondary-500', 'hover:text-secondary-700');
+        });
+
+        document.getElementById('registerTab').addEventListener('click', function() {
+            document.getElementById('registerForm').classList.remove('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('registerTab').classList.add('border-primary-500', 'text-primary-600');
+            document.getElementById('registerTab').classList.remove('border-transparent', 'text-secondary-500', 'hover:text-secondary-700');
+            document.getElementById('loginTab').classList.remove('border-primary-500', 'text-primary-600');
+            document.getElementById('loginTab').classList.add('border-transparent', 'text-secondary-500', 'hover:text-secondary-700');
+        });
+
+        // Toggle doctor/patient fields
+        document.querySelectorAll('input[name="userType"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'doctor') {
+                    document.getElementById('hpcsNumberField').classList.remove('hidden');
+                    document.getElementById('idNumberField').classList.add('hidden');
+                } else {
+                    document.getElementById('hpcsNumberField').classList.add('hidden');
+                    document.getElementById('idNumberField').classList.remove('hidden');
+                }
+            });
+        });
+
+        // Validate SA ID number (simplified version)
+        document.getElementById('idNumber').addEventListener('blur', function() {
+            const idNumber = this.value;
+            if (idNumber.length === 13) {
+                // Check gender digit (7th digit, 0-4 female, 5-9 male in SA ID)
+                const genderDigit = parseInt(idNumber.charAt(6));
+                if (genderDigit >= 5) {
+                    alert('This platform is exclusively for women. Your ID number indicates you are male.');
+                    this.value = '';
+                }
+            } else if (idNumber.length > 0) {
+                alert('Please enter a valid 13-digit South African ID number');
+                this.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
